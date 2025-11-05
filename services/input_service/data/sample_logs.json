@@ -1,0 +1,243 @@
+{
+  "siem": [
+    {
+      "timestamp": "2025-11-04T10:12:10Z",
+      "src_ip": "10.0.0.8",
+      "dest_ip": "10.0.0.15",
+      "event_type": "file_modified",
+      "severity": "medium",
+      "msg": "Critical system file modified: /etc/passwd",
+      "user": "root",
+      "hostname": "sec-srv-1",
+      "device_vendor": "Splunk",
+      "device_product": "Splunk Enterprise"
+    },
+    {
+      "timestamp": "2025-11-04T11:05:44Z",
+      "src_ip": "10.0.0.22",
+      "dest_ip": "10.0.0.9",
+      "event_type": "unauthorized_access",
+      "severity": "high",
+      "msg": "Multiple failed login attempts detected from 10.0.0.22",
+      "user": "guest",
+      "hostname": "auth-srv-2",
+      "device_vendor": "QRadar",
+      "device_product": "IBM QRadar"
+    },
+    {
+      "timestamp": "2025-11-04T11:20:31Z",
+      "src_ip": "172.16.0.5",
+      "dest_ip": "172.16.0.10",
+      "event_type": "firewall_rule_change",
+      "severity": "medium",
+      "msg": "New inbound rule added for port 3389",
+      "user": "netadmin",
+      "hostname": "fw-core-1",
+      "device_vendor": "Palo Alto",
+      "device_product": "Panorama"
+    },
+    {
+      "timestamp": "2025-11-04T12:15:22Z",
+      "src_ip": "10.1.1.10",
+      "dest_ip": "10.1.1.50",
+      "event_type": "policy_violation",
+      "severity": "low",
+      "msg": "User attempted to access restricted share",
+      "user": "bob",
+      "hostname": "file-srv-3",
+      "device_vendor": "Splunk",
+      "device_product": "Splunk Enterprise"
+    },
+    {
+      "timestamp": "2025-11-04T12:40:00Z",
+      "src_ip": "10.0.0.55",
+      "dest_ip": "10.0.0.60",
+      "event_type": "malware_detected",
+      "severity": "critical",
+      "msg": "Trojan detected: Trojan.GenericKD.523221",
+      "user": "system",
+      "hostname": "sec-gateway-1",
+      "device_vendor": "McAfee",
+      "device_product": "SIEM Collector"
+    }
+  ],
+
+  "edr": [
+    {
+      "timestamp": "2025-11-04T10:31:00Z",
+      "endpoint_id": "FINANCE-PC02",
+      "process_name": "cmd.exe",
+      "process_id": 3267,
+      "parent_process": "explorer.exe",
+      "event": "privilege_escalation",
+      "severity": "critical",
+      "user": "finance_admin",
+      "device_vendor": "CrowdStrike Falcon",
+      "os": "Windows 11"
+    },
+    {
+      "timestamp": "2025-11-04T10:35:45Z",
+      "endpoint_id": "ENGG-PC04",
+      "process_name": "powershell.exe",
+      "process_id": 1422,
+      "parent_process": "explorer.exe",
+      "event": "suspicious_script",
+      "severity": "high",
+      "user": "eng_user",
+      "device_vendor": "SentinelOne",
+      "os": "Windows 10"
+    },
+    {
+      "timestamp": "2025-11-04T10:42:11Z",
+      "endpoint_id": "OPS-SRV01",
+      "process_name": "svchost.exe",
+      "process_id": 480,
+      "parent_process": "services.exe",
+      "event": "unauthorized_process_injection",
+      "severity": "critical",
+      "user": "system",
+      "device_vendor": "Carbon Black",
+      "os": "Windows Server 2019"
+    },
+    {
+      "timestamp": "2025-11-04T10:50:33Z",
+      "endpoint_id": "HR-PC01",
+      "process_name": "chrome.exe",
+      "process_id": 9001,
+      "parent_process": "explorer.exe",
+      "event": "network_connection",
+      "severity": "low",
+      "user": "hr_user",
+      "device_vendor": "CrowdStrike Falcon",
+      "os": "Windows 11"
+    },
+    {
+      "timestamp": "2025-11-04T10:58:27Z",
+      "endpoint_id": "DEV-PC03",
+      "process_name": "python.exe",
+      "process_id": 7002,
+      "parent_process": "cmd.exe",
+      "event": "ransomware_activity",
+      "severity": "critical",
+      "user": "devops",
+      "device_vendor": "SentinelOne",
+      "os": "Windows 11"
+    }
+  ],
+
+  "asset_management": [
+    {
+      "timestamp": "2025-11-04T09:00:00Z",
+      "asset_id": "ASSET-001",
+      "asset_type": "Laptop",
+      "hostname": "HR-LAPTOP-01",
+      "owner": "Alice",
+      "status": "Active",
+      "os": "Windows 10",
+      "last_patch_date": "2025-10-25",
+      "missing_patches": []
+    },
+    {
+      "timestamp": "2025-11-04T09:10:00Z",
+      "asset_id": "ASSET-002",
+      "asset_type": "Server",
+      "hostname": "APP-SRV-02",
+      "owner": "IT",
+      "status": "Degraded",
+      "os": "Ubuntu 22.04",
+      "last_patch_date": "2025-09-30",
+      "missing_patches": ["CVE-2025-1304", "CVE-2025-0920"]
+    },
+    {
+      "timestamp": "2025-11-04T09:20:00Z",
+      "asset_id": "ASSET-003",
+      "asset_type": "Router",
+      "hostname": "RTR-CORE-01",
+      "owner": "Network Team",
+      "status": "Active",
+      "os": "Cisco IOS",
+      "last_patch_date": "2025-10-15",
+      "missing_patches": []
+    },
+    {
+      "timestamp": "2025-11-04T09:30:00Z",
+      "asset_id": "ASSET-004",
+      "asset_type": "Firewall",
+      "hostname": "FW-GATE-01",
+      "owner": "Security",
+      "status": "Active",
+      "os": "FortiOS",
+      "last_patch_date": "2025-10-01",
+      "missing_patches": ["CVE-2025-0201"]
+    },
+    {
+      "timestamp": "2025-11-04T09:40:00Z",
+      "asset_id": "ASSET-005",
+      "asset_type": "Database",
+      "hostname": "DB-SRV-05",
+      "owner": "Finance",
+      "status": "Outdated",
+      "os": "RHEL 9",
+      "last_patch_date": "2025-08-10",
+      "missing_patches": ["CVE-2025-0543", "CVE-2025-0700", "CVE-2025-0899"]
+    }
+  ],
+
+  "network_monitoring": [
+    {
+      "timestamp": "2025-11-04T08:00:00Z",
+      "src_ip": "192.168.1.10",
+      "dest_ip": "8.8.8.8",
+      "protocol": "ICMP",
+      "status": "OK",
+      "latency_ms": 15,
+      "packet_loss": 0,
+      "device": "RTR-EDGE-01",
+      "vendor": "Cisco"
+    },
+    {
+      "timestamp": "2025-11-04T08:05:00Z",
+      "src_ip": "192.168.1.11",
+      "dest_ip": "8.8.4.4",
+      "protocol": "TCP",
+      "status": "TIMEOUT",
+      "latency_ms": null,
+      "packet_loss": 100,
+      "device": "RTR-EDGE-02",
+      "vendor": "Juniper"
+    },
+    {
+      "timestamp": "2025-11-04T08:10:00Z",
+      "src_ip": "192.168.1.12",
+      "dest_ip": "1.1.1.1",
+      "protocol": "UDP",
+      "status": "OK",
+      "latency_ms": 10,
+      "packet_loss": 0,
+      "device": "RTR-EDGE-03",
+      "vendor": "Cisco"
+    },
+    {
+      "timestamp": "2025-11-04T08:15:00Z",
+      "src_ip": "192.168.1.13",
+      "dest_ip": "8.8.8.8",
+      "protocol": "TCP",
+      "status": "OK",
+      "latency_ms": 12,
+      "packet_loss": 0,
+      "device": "RTR-CORE-01",
+      "vendor": "Cisco"
+    },
+    {
+      "timestamp": "2025-11-04T08:20:00Z",
+      "src_ip": "192.168.1.14",
+      "dest_ip": "8.8.4.4",
+      "protocol": "UDP",
+      "status": "TIMEOUT",
+      "latency_ms": null,
+      "packet_loss": 100,
+      "device": "RTR-CORE-02",
+      "vendor": "Juniper"
+    }
+  ]
+}
