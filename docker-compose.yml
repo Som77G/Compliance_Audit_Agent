@@ -57,13 +57,22 @@ services:
       timeout: 5s
       retries: 10
 
-  input_service:
-    build: ./services/input_service
+  # input_service:
+  #   build: ./services/input_service
+  #   depends_on:
+  #     kafka:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./services/input_service:/app
+  #   command: ["python", "main.py"]
+
+  periodic_input_service:
+    build: ./services/periodic_input_service
     depends_on:
       kafka:
         condition: service_healthy
     volumes:
-      - ./services/input_service:/app
+      - ./services/periodic_input_service:/app
     command: ["python", "main.py"]
 
   normalization_service:

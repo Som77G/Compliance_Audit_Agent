@@ -1,0 +1,10 @@
+timestamp,endpoint_id,process_name,process_id,parent_process,event,severity,user,device_vendor,os
+2025-11-04T10:31:00Z,FINANCE-PC02,cmd.exe,3267,explorer.exe,privilege_escalation,critical,finance_admin,CrowdStrike Falcon,Windows 11
+2025-11-04T10:32:15Z,HR-LAPTOP01,powershell.exe,2245,wininit.exe,lateral_movement,high,hr_user,Carbon Black,Windows 10
+2025-11-04T10:33:45Z,IT-SERVER01,svchost.exe,1567,services.exe,malware_detected,critical,system,SentinelOne,Windows Server 2022
+2025-11-04T10:34:22Z,DEV-PC09,python.exe,4023,cmd.exe,suspicious_script,medium,developer,CrowdStrike Falcon,Windows 11
+2025-11-04T10:35:55Z,CEO-LAPTOP,chrome.exe,5332,explorer.exe,credential_access,high,ceo_user,SentinelOne,Windows 11
+2025-11-04T10:36:21Z,FINANCE-PC03,excel.exe,3201,explorer.exe,macro_execution,medium,finance_user,Carbon Black,Windows 10
+2025-11-04T10:37:10Z,SOC-SERVER,winlogon.exe,1120,system,rootkit_detected,critical,soc_admin,CrowdStrike Falcon,Windows Server 2019
+2025-11-04T10:38:50Z,SALES-PC11,outlook.exe,4520,explorer.exe,phishing_attempt,high,sales_user,SentinelOne,Windows 11
+2025-11-04T10:39:30Z,ADMIN-PC01,mmc.exe,2029,explorer.exe,unauthorized_admin_access,critical,admin_user,Carbon Black,Windows 10

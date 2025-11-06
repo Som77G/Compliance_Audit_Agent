@@ -1,0 +1,6 @@
+timestamp,asset_id,asset_type,hostname,owner,status,os,last_patch_date,missing_patches,patch_tool
+2025-11-04T09:10:00Z,ASSET-002,Server,app-server-2,IT,Degraded,Ubuntu 22.04,2025-09-30,CVE-2025-1304;CVE-2025-0920,Tanium
+2025-11-04T09:12:30Z,ASSET-010,Workstation,finance-ws-3,Finance,Healthy,Windows 11,2025-11-02,,WSUS
+2025-11-04T09:15:00Z,ASSET-021,Server,db-server-1,Database Team,Vulnerable,RedHat 9,2025-09-10,CVE-2025-1402;CVE-2025-1021;CVE-2025-0991,ManageEngine
+2025-11-04T09:18:50Z,ASSET-015,Laptop,hr-laptop-1,HR,Degraded,Windows 10,2025-10-10,CVE-2025-1122,WSUS
+2025-11-04T09:20:10Z,ASSET-030,Server,security-srv-1,Security,Critical,Ubuntu 20.04,2025-08-20,CVE-2025-2001;CVE-2025-1988;CVE-2025-1450,Tanium

@@ -1,0 +1,11 @@
+time,src_ip,dest_ip,event_type,severity,msg,user,hostname,device_vendor,device_product
+2025-11-04T10:12:10Z,10.0.0.8,10.0.0.15,file_modified,medium,Critical system file modified: /etc/passwd,root,sec-srv-1,Splunk,Splunk Enterprise
+2025-11-04T10:13:45Z,10.0.0.10,10.0.0.16,failed_login,high,Multiple failed SSH login attempts,unknown,sec-srv-2,IBM,QRadar
+2025-11-04T10:14:30Z,10.0.0.12,10.0.0.20,malware_detected,critical,Malware detected in /usr/bin/temp,system,mal-sensor-1,Elastic,ELK
+2025-11-04T10:15:12Z,192.168.1.5,172.16.0.2,port_scan,medium,Port scanning detected from external IP,n/a,fw-1,Splunk,Splunk Enterprise
+2025-11-04T10:16:40Z,10.0.0.18,10.0.0.50,file_access,low,Accessed protected directory /var/log,admin,sec-srv-4,IBM,QRadar
+2025-11-04T10:17:10Z,10.0.0.30,10.0.0.10,network_connection,medium,Unusual outbound traffic to suspicious IP,svc-user,sec-srv-3,Elastic,ELK
+2025-11-04T10:18:05Z,10.0.0.22,10.0.0.80,privilege_escalation,critical,Privilege escalation detected on local machine,root,prv-det-1,Splunk,Splunk Enterprise
+2025-11-04T10:19:22Z,10.0.0.25,10.0.0.50,data_exfiltration,high,Large outbound data transfer,employee1,sec-srv-5,IBM,QRadar
+2025-11-04T10:20:31Z,10.0.0.40,8.8.8.8,dns_query,low,DNS request to external domain,web-service,dns-srv,Elastic,ELK
+2025-11-04T10:21:18Z,172.16.0.10,10.0.0.12,login_success,low,Successful SSH login,admin,sec-srv-6,Splunk,Splunk Enterprise
