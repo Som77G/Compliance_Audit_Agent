@@ -13,7 +13,8 @@ for _ in range(10):
         consumer = KafkaConsumer(
             RAW_TOPIC,
             bootstrap_servers=KAFKA_BROKER,
-            auto_offset_reset='earliest',
+            group_id="normalization_service_group",
+            auto_offset_reset='latest',
             value_deserializer=lambda m: json.loads(m.decode('utf-8'))
         )
         producer = KafkaProducer(
@@ -123,7 +124,7 @@ def normalize_log(log):
     elif source == "network_monitoring":
         return normalize_network_monitoring(log)
     else:
-        print(f"⚠ Unknown source_type: {source}")
+        print(f"Unknown source_type: {source}")
         return None
 
 

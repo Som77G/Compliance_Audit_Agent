@@ -82,35 +82,35 @@ def collect_logs():
 
         # Add type field to each entry
         for entry in logs:
-            entry["type"] = source_type  # ✅ explicit category field
+            entry["source_type"] = source_type  # explicit category field
             aggregated.append(entry)
 
     return aggregated
 
-# ✅ CONNECT TO KAFKA WITH RETRIES
+# CONNECT TO KAFKA WITH RETRIES
 for i in range(10):
     try:
         producer = KafkaProducer(
             bootstrap_servers=KAFKA_BROKER,
             value_serializer=lambda v: json.dumps(v).encode("utf-8")
         )
-        print("✅ Connected to Kafka broker!")
+        print("Connected to Kafka broker!")
         break
     except Exception as e:
-        print(f"⚠️ Kafka not ready yet ({e}), retrying in 5s...")
+        print(f"Kafka not ready yet ({e}), retrying in 5s...")
         time.sleep(5)
 else:
-    raise Exception("❌ Kafka broker not available after 10 retries.")
+    raise Exception("Kafka broker not available after 10 retries.")
 
-print("📂 Reading logs from periodic_data/ ...")
+print("Reading logs from periodic_data/ ...")
 logs = collect_logs()
-print(f"✅ Total logs collected: {len(logs)}")
+print(f"Total logs collected: {len(logs)}")
 
-# ✅ SEND LOGS ONE BY ONE (STREAM MODE)
+# SEND LOGS ONE BY ONE (STREAM MODE)
 for log in logs:
     producer.send(TOPIC_NAME, value=log)
-    print(f"📤 Sent log → {log.get('type')} | {log.get('timestamp', 'no-timestamp')}")
+    print(f"Sent log → {log.get('type')} | {log.get('timestamp', 'no-timestamp')}")
     time.sleep(1)  # simulate stream
 
 producer.flush()
-print("\n🎯 All logs sent successfully to Kafka topic:", TOPIC_NAME)
+print("\nAll logs sent successfully to Kafka topic:", TOPIC_NAME)
