@@ -1,26 +1,28 @@
-import google.generativeai as genai
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import os
-from chromadb import Client
+import chromadb
 
 # Configure Gemini
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+google_api_key = os.getenv("GOOGLE_API_KEY")
+
+embeddings = GoogleGenerativeAIEmbeddings(
+    model="models/text-embedding-004",
+    google_api_key=google_api_key
+)
 
 def retrieve_relevant_docs(query_text: str):
     """
     Generates an embedding for the given query using Gemini embeddings API
     and retrieves top related compliance documents from ChromaDB.
     """
+    CHROMA_DB_PATH = "/app/vector_db/chroma_store"
 
-    chroma_client = Client()
+    chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
     collection = chroma_client.get_or_create_collection(name="audit_docs")
 
-    # Generate embeddings using Gemini
-    embedding_response = genai.embed_content(
-        model="models/text-embedding-004",
-        content=query_text,
-        task_type="retrieval_query"
-    )
-    query_embedding = embedding_response["embedding"]
+    # Generate embedding
+    query_embedding = embeddings.embed_query(query_text)
+    print("Embedding generated out of Audit Statement\n")
 
     # Query ChromaDB for relevant documents
     results = collection.query(
@@ -28,8 +30,7 @@ def retrieve_relevant_docs(query_text: str):
         n_results=3
     )
 
-    # Combine top retrieved docs as context
-    docs = [doc for sublist in results["documents"] for doc in sublist]
+    docs = [doc for sublist in results.get("documents", []) for doc in sublist]
+    print("Relevant docs extracted:", docs)
 
-    print("Relevant docs extracted: ", docs)
-    return "\n".join(docs)
+    return "\n".join(docs) if docs else "No relevant documents found."

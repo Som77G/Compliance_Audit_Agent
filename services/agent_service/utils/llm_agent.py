@@ -1,11 +1,11 @@
-import google.generativeai as genai
+from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 
 # Configure Gemini API key
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+google_api_key = os.getenv("GOOGLE_API_KEY")
 
 # Initialize model for generating text
-model = genai.GenerativeModel("models/gemini-2.0-flash-lite")
+model = ChatGoogleGenerativeAI(model = "gemini-2.0-flash", google_api_key = google_api_key)
 
 def generate_audit_statement(normalized_log: dict) -> str:
     """
@@ -28,5 +28,5 @@ def generate_audit_statement(normalized_log: dict) -> str:
     {normalized_log}
     """
 
-    response = model.generate_content(prompt)
+    response = model.invoke(prompt)
     return response.text.strip()

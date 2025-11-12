@@ -1,12 +1,12 @@
 from utils.embeddings import retrieve_relevant_docs
-import google.generativeai as genai
+from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 
-# Configure Gemini
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# Configure Gemini API key
+google_api_key = os.getenv("GOOGLE_API_KEY")
 
-# Use Gemini 2.5 Pro for compliance reasoning
-model = genai.GenerativeModel("models/gemini-2.0-flash-lite")
+# Initialize model for generating text
+model = ChatGoogleGenerativeAI(model = "gemini-2.0-flash", google_api_key = google_api_key)
 
 def check_compliance(audit_statement: str):
     """
@@ -27,10 +27,10 @@ def check_compliance(audit_statement: str):
 
     Respond in strict JSON format:
     {{
-        "is_compliant": true or false,
+        "is_compliant": compliant/ partially-compliant/ non-compliant,
         "reason": "short explanation"
     }}
     """
 
-    response = model.generate_content(prompt)
+    response = model.invoke(prompt)
     return response.text.strip()

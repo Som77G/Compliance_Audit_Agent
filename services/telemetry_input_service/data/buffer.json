@@ -1,0 +1,15 @@
+[
+  {
+    "timestamp": "2025-11-04T10:12:10Z",
+    "src_ip": "10.0.0.8",
+    "dest_ip": "10.0.0.15",
+    "event_type": "file_modified",
+    "severity": "medium",
+    "msg": "Critical system file modified: /etc/passwd",
+    "user": "root",
+    "hostname": "sec-srv-1",
+    "device_vendor": "Splunk",
+    "device_product": "Splunk Enterprise",
+    "source_type": "siem"
+  }
+]
